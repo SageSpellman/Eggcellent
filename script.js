@@ -4,7 +4,7 @@ const wordDisplay = document.querySelector("word-display");
 const guessesText = document.querySelector("guesses-text");
 const keyboardDiv = document.querySelector("keyboard");
 const gudetamaImage = document.querySelector("gudetama-startphase.gif");
-//const playAgainBtn = gameModal.querySelector("button");
+const playAgainBtn = gameModal.querySelector("button");
 const AUDIO = new Audio("");
 
 // Initializing game variables
