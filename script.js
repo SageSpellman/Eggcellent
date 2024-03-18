@@ -1,8 +1,10 @@
+import { wordsAndHints } from './word-list.js';
+
 const wordDisplay = document.querySelector("word-display");
 const guessesText = document.querySelector("guesses-text");
 const keyboardDiv = document.querySelector("keyboard");
 const gudetamaImage = document.querySelector("gudetama-startphase.gif");
-const playAgainBtn = gameModal.querySelector("button");
+//const playAgainBtn = gameModal.querySelector("button");
 const AUDIO = new Audio("");
 
 // Initializing game variables
@@ -21,7 +23,7 @@ const resetGame = () => {
 
 const getRandomWord = () => {
     // Selecting a random word and hint from the wordList
-    const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+    const { word, hint } = wordsAndHints[Math.floor(Math.random() * wordList.length)];
     currentWord = word; // Making currentWord as random word
     document.querySelector("hint-text").innerText = hint;
     resetGame();

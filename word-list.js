@@ -50,9 +50,8 @@ const wordsAndHints = [
     { word: "crown", hint: "Symbol of royalty worn on the head" }
 ];
 
-const randomIndex = Math.floor(Math.random() * wordsAndHints.length);
-const selectedWord = wordsAndHints[randomIndex].word;
-const selectedHint = wordsAndHints[randomIndex].hint;
+export {wordsAndHints};
 
-console.log("Word:", selectedWord);
-console.log("Hint:", selectedHint);
+// we need to export the array so that it can be used in other files using module.exports = wordsAndHints;
+//import { wordsAndHints } from './word-list.js'; ?✅Bingo, we can use this line. hmm. but actually you may have to use require instead of import.
+//also you may need to add the module attribute on the script tag in the html file. <script type="module" src="app.js"></script>
