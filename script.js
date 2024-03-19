@@ -22,17 +22,19 @@ const getRandomWord = () => {
     resetGame();
 }
 
-const resetGame = () => {
-    // Resetting game variables and elements
-    correctLetters = [];
-    wrongGuessCount = 0;
-    const guessesText = document.querySelector("#guesses-text");
-    if (guessesText) {
-        guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
-        wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
-        keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
-        gameModal.classList.remove("show");
+    const resetGame = () => {
+        // Resetting game variables and elements
+        correctLetters = [];
+        wrongGuessCount = 0;
+        const guessesText = document.querySelector("#guesses-text");
+        if (guessesText) {
+            guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+            wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
+            keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
+            gameModal.classList.remove("show");
+        }
     }
+    
 
 // Add event listeners to alphabet buttons
 if (keyboardDiv) {
@@ -59,7 +61,6 @@ if (keyboardDiv) {
 
 if (wordsAndHints.length === 0) {
     console.error("No words available in the word list.");
-    return;
 }
 
 // Selecting a random word and hint from the wordList
@@ -67,15 +68,14 @@ const randomIndex = Math.floor(Math.random() * wordsAndHints.length);
 const { word, hint } = wordsAndHints[randomIndex];
 currentWord = word; // Making currentWord as random word
 
-const hintElement = document.querySelector(".hint-text");
+const hintElement = document.querySelector("#hint-text");
 if (hintElement) {
     hintElement.innerText = hint;
-} else {
-    console.error("Hint element not found.");
 }
 
 resetGame();
-}
+
+
 
 // Call getRandomWord to start the game
 getRandomWord();
