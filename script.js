@@ -7,6 +7,7 @@ const keyboardDiv = document.querySelector(".keyboard"); // Selecting the keyboa
 const gudetamaImage = document.querySelector(".gudetama-IMG"); // Selecting the Gudetama image element
 const gameModal = document.querySelector(".modal"); // Selecting the modal element
 const playAgainBtn = document.querySelector("#play-again-btn"); // Selecting the Play Again button
+const gameOverMessage = document.querySelector("#game-over-message");
 
 // Initializing game variables
 let currentWord = ""; // Initializing the word to be guessed
@@ -16,7 +17,7 @@ const maxGuesses = 6; // Setting the maximum number of guesses allowed
 
 // Function to select a random word and hint
 const getRandomWord = () => {
-    const randomIndex = Math.floor(Math.random() * wordsAndHints.length); // Generating a random index
+    const randomIndex = Math.floor(Math.random() * wordsAndHints.length); // Generating a random wordAndHint index
     const { word, hint } = wordsAndHints[randomIndex]; // Getting the word and hint from the array
     currentWord = word; // Setting the currentWord to the selected word
     document.querySelector(".hint-text").innerText = hint; // Updating the hint text
@@ -96,18 +97,24 @@ function isWin() {
     return currentWord.split("").every(letter => correctLetters.includes(letter)); // Checking if all letters in the word have been guessed correctly
 }
 
-// Function to handle the end of the game
+function isLoss() {
+    return incorrectLetters.length >= maxGuesses; // Checking if the number of incorrect guesses is equal to or exceeds the maximum allowed
+}
+
 const endGame = (isWin) => {
     if (isWin) {
         // Code to handle winning the game
-        console.log("You win!");
-    } else {
-        // Code to handle losing the game
-        console.log("You lose!");
-        // Display a message or modal indicating the game is over
+        // Display a message indicating the player has won
         const gameOverMessage = document.querySelector("#game-over-message");
         if (gameOverMessage) {
-            gameOverMessage.innerText = "Game Over! You ran out of guesses.";
+            gameOverMessage.innerHTML = "<p>You win!</p>";
+        }
+    } else {
+        // Code to handle losing the game
+        // Display a message indicating the player has lost
+        const gameOverMessage = document.querySelector("#game-over-message");
+        if (gameOverMessage) {
+            gameOverMessage.innerHTML = "<p>Game Over! You ran out of guesses.</p>";
         }
     }
     playAgainBtn.style.visibility = "visible"; // Making the play again button visible
@@ -118,10 +125,9 @@ playAgainBtn.addEventListener("click", () => {
     resetGame(); // Resetting the game
     playAgainBtn.style.visibility = "visible"; // the play again button
     });
-    
+    playAgainBtn.addEventListener("click", getRandomWord);
     // Wait for the DOM to be fully loaded before calling init
     document.addEventListener("DOMContentLoaded", init);
     
     // Call getRandomWord to start the game
     getRandomWord();
-    
