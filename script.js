@@ -97,10 +97,6 @@ function isWin() {
     return currentWord.split("").every(letter => correctLetters.includes(letter)); // Checking if all letters in the word have been guessed correctly
 }
 
-function isLoss() {
-    return incorrectLetters.length >= maxGuesses; // Checking if the number of incorrect guesses is equal to or exceeds the maximum allowed
-}
-
 const endGame = (isWin) => {
     if (isWin) {
         // Code to handle winning the game
