@@ -1,72 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eggcellent</title>
-    <script src="word-list.js" type="module"></script> 
+    <script src="word-list.js" type="module"></script>
     <script src="script.js" type="module"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="gudetama-box">
-            <img src="Images/gudetama-startphase.gif" class="gudetama-IMG">
-            <h1>Eggcellent</h1>
+      <div class="gudetama-box">
+        <img src="Images/gudetama-startphase.gif" class="gudetama-IMG" />
+        <h1>Eggcellent</h1>
+      </div>
+      <div class="game-box">
+        <ul class="word-display">
+          <li class="letter"></li>
+          <li class="letter"></li>
+          <li class="letter"></li>
+          <li class="letter"></li>
+          <li class="letter"></li>
+          <li class="letter"></li>
+          <li class="letter"></li>
+        </ul>
+        <h4 class="hint-text">
+          Hint:
+          <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b>
+        </h4>
+        <h4 class="guesses-text">
+          Incorrect Guesses:
+          <b> 0 / 6 </b>
+        </h4>
+        <div id="game-over-message"></div>
+        <button id="play-again-btn" style="visibility: visible">
+          Play Again
+        </button>
+        <div class="keyboard">
+          <button class="alphabet">A</button>
+          <button class="alphabet">B</button>
+          <button class="alphabet">C</button>
+          <button class="alphabet">D</button>
+          <button class="alphabet">E</button>
+          <button class="alphabet">F</button>
+          <button class="alphabet">G</button>
+          <button class="alphabet">H</button>
+          <button class="alphabet">I</button>
+          <button class="alphabet">J</button>
+          <button class="alphabet">K</button>
+          <button class="alphabet">L</button>
+          <button class="alphabet">M</button>
+          <button class="alphabet">N</button>
+          <button class="alphabet">O</button>
+          <button class="alphabet">P</button>
+          <button class="alphabet">Q</button>
+          <button class="alphabet">R</button>
+          <button class="alphabet">S</button>
+          <button class="alphabet">T</button>
+          <button class="alphabet">U</button>
+          <button class="alphabet">V</button>
+          <button class="alphabet">W</button>
+          <button class="alphabet">X</button>
+          <button class="alphabet">Y</button>
+          <button class="alphabet">Z</button>
         </div>
-        <div class="game-box">
-            <ul class="word-display">
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-                <li class="letter"></li>
-            </ul>
-            <h4 class="hint-text">
-                Hint: 
-                <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</b>
-            </h4>
-            <h4 class="guesses-text">
-                Incorrect Guesses: 
-                <b> 0 / 6 </b>
-
-
-               
-            </h4>
-            <div id="game-over-message"></div>
-            <button id="play-again-btn" style="visibility: visible;">Play Again</button>
-            <div class="keyboard">
-        
-                <button class="alphabet">A</button>
-                <button class="alphabet">B</button>
-                <button class="alphabet">C</button>
-                <button class="alphabet">D</button>
-                <button class="alphabet">E</button>
-                <button class="alphabet">F</button>
-                <button class="alphabet">G</button>
-                <button class="alphabet">H</button>
-                <button class="alphabet">I</button>
-                <button class="alphabet">J</button>
-                <button class="alphabet">K</button>
-                <button class="alphabet">L</button>
-                <button class="alphabet">M</button>
-                <button class="alphabet">N</button>
-                <button class="alphabet">O</button>
-                <button class="alphabet">P</button>
-                <button class="alphabet">Q</button>
-                <button class="alphabet">R</button>
-                <button class="alphabet">S</button>
-                <button class="alphabet">T</button>
-                <button class="alphabet">U</button>
-                <button class="alphabet">V</button>
-                <button class="alphabet">W</button>
-                <button class="alphabet">X</button>
-                <button class="alphabet">Y</button>
-                <button class="alphabet">Z</button>
-            </div>
-        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

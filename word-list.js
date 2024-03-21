@@ -50,4 +50,4 @@ const wordsAndHints = [
     { word: "crown", hint: "Symbol of royalty worn on the head" }
 ];
 
-export {wordsAndHints};
+export { wordsAndHints };
