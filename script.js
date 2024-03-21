@@ -101,11 +101,6 @@ const resetGame = () => {
         });
     }
 
-// Function to check if the player has won
-//function isWin() {
-    //return currentWord.split("").every(letter => correctLetters.includes(letter));
-   // endGame(true); // Checking if all letters in the word have been guessed correctly
-
 
 const endGame = (isWin) => {
     if (isWin){
