@@ -9,6 +9,8 @@ const gameModal = document.querySelector(".modal"); // Selecting the modal eleme
 const playAgainBtn = document.querySelector("#play-again-btn"); // Selecting the Play Again button
 const gameOverMessage = document.querySelector("#game-over-message");
 
+playAgainBtn.style.visibility = "hidden";
+
 // Initializing game variables
 let currentWord = ""; // Initializing the word to be guessed
 let correctLetters = []; // Initializing the array of correctly guessed letters
@@ -21,23 +23,22 @@ const getRandomWord = () => {
     const { word, hint } = wordsAndHints[randomIndex]; // Getting the word and hint from the array
     currentWord = word; // Setting the currentWord to the selected word
     document.querySelector(".hint-text").innerText = hint; // Updating the hint text
-    resetGame(); // Resetting the game
 }
 
 // Function to reset the game
 const resetGame = () => {
     // Resetting game variables and elements
-    correctLetters = [];
-    wrongGuessCount = 0;
-    const guessesText = document.querySelector("#guesses-text");
-    const gameModal = document.querySelector(".modal"); // Get game modal element
-    if (guessesText && gameModal) {
+    correctLetters = []; // Reset the array of correct letters
+    wrongGuessCount = 0; // Reset the wrong guess count
+        // Update the displayed guesses count
         guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+        // Reset the word display to blanks for each letter
         wordDisplay.innerHTML = currentWord.split("").map(() => `<li class="letter"></li>`).join("");
+        // Enable all keyboard buttons
         keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
-        gameModal.classList.remove("show");
+        // Hide the game over modal
+        gameOverMessage.innerHTML = ''
     }
-}
     
     const updateGuessesText = () => {
         // Update the displayed text showing the number of incorrect guesses
@@ -58,7 +59,7 @@ const resetGame = () => {
             });
             wordDisplayElement.innerHTML = displayArray.join(" "); // Update the display with the correctly guessed letters
         }
-    }     
+    } 
 
     const init = () => {
         // Initialize keyboardDiv after the DOM is loaded
@@ -67,13 +68,19 @@ const resetGame = () => {
         // Add event listeners to alphabet buttons
         keyboardDiv.querySelectorAll(".alphabet").forEach(button => {
             button.addEventListener("click", () => {
+                // Get the lowercase letter from the button text
                 const letter = button.innerText.toLowerCase();
-                // checking the current word letters
+                // Check if the letter is in the current word
                 if (currentWord.includes(letter)) {
                     // Correct guess
                     correctLetters.push(letter);
                     updateWordDisplay();
-    
+                    //if (wrongGuessCount >= maxGuesses){
+                 const isWin = currentWord.split("").every(letter => correctLetters.includes(letter));
+                 if (isWin) {
+                    endGame(true)
+                 }
+                   // }
                 } else {
                     // Wrong guess
                     wrongGuessCount++;
@@ -82,46 +89,49 @@ const resetGame = () => {
                     // Check if the game is over
                     if (wrongGuessCount >= maxGuesses) {
                         endGame(false);
+                        // Disable all alphabet buttons
                         keyboardDiv.querySelectorAll(".alphabet").forEach(btn => {
                             btn.disabled = true;
                         });
                     }
                 }
-                button.disabled = true; // Disable the button
+                // Disable the button after it's clicked
+                button.disabled = true;
             });
         });
     }
 
 // Function to check if the player has won
-function isWin() {
-    return currentWord.split("").every(letter => correctLetters.includes(letter)); // Checking if all letters in the word have been guessed correctly
-}
+//function isWin() {
+    //return currentWord.split("").every(letter => correctLetters.includes(letter));
+   // endGame(true); // Checking if all letters in the word have been guessed correctly
+
 
 const endGame = (isWin) => {
-    if (isWin) {
+    if (isWin){
         // Code to handle winning the game
         // Display a message indicating the player has won
-        const gameOverMessage = document.querySelector("#game-over-message");
-        if (gameOverMessage) {
+        
             gameOverMessage.innerHTML = "<p>You win!</p>";
-        }
+     
     } else {
         // Code to handle losing the game
         // Display a message indicating the player has lost
-        const gameOverMessage = document.querySelector("#game-over-message");
-        if (gameOverMessage) {
+
             gameOverMessage.innerHTML = "<p>Game Over! You ran out of guesses.</p>";
-        }
+
     }
     playAgainBtn.style.visibility = "visible"; // Making the play again button visible
 }
 
 // Event listener for the play again button
 playAgainBtn.addEventListener("click", () => {
-    resetGame(); // Resetting the game
-    playAgainBtn.style.visibility = "visible"; // the play again button
+    playAgainBtn.style.visibility = "hidden";
+    gameOverMessage.innerHTML = '';
+    getRandomWord();
+    resetGame();
+    //playAgainBtn.style.visibility = "hidden"; // the play again button
     });
-    playAgainBtn.addEventListener("click", getRandomWord);
     // Wait for the DOM to be fully loaded before calling init
     document.addEventListener("DOMContentLoaded", init);
     
