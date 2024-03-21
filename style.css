@@ -6,6 +6,9 @@
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif;
 }
+body, html {
+  cursor: url(https://www.picgifs.com/emoticons/smileys-and-emoticons/eggs/smileys-eggs-287080.gif), pointer;
+}
 body {
   display: flex;
   padding: 0 10px;
