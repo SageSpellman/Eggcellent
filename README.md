@@ -4,8 +4,11 @@
 
 # Description 
 
-a single player word guessing game. Eggcellent is a game where you click on the letters and try to guess the word that the hint is giving you. 
+A single player word guessing game. 
+Eggcellent is a game where you click on the letters and try to guess the word that the hint is giving you. 
+Each round the words and hints are completely randomized.
 You have a limit of six incorrect guesses before you receive a game over message signaling that you lost the game.
+Once you win or lose the game you will see the play again button you will be able to play the game again and the words are completely reset along with their respective hints.
 
 
 # Screenshots Of Game
