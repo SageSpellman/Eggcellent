@@ -10,12 +10,19 @@ You have a limit of six incorrect guesses before you receive a game over mess si
 
 # Screenshots Of Game
 
-Eggcellent/Images/Screenshot 2024-03-21 at 6.52.28 PM.png
+<img
+    src="https://github.com/SageSpellman/Eggcellent/blob/main/Images/Screenshot%202024-03-21%20at%206.52.28%E2%80%AFPM.png"
+    width="700"
 
-Eggcellent/Images/Screenshot 2024-03-21 at 6.53.21 PM.png
+<img
+    src="https://github.com/SageSpellman/Eggcellent/blob/main/Images/Screenshot%202024-03-21%20at%206.53.21%E2%80%AFPM.png"
+    width="700"
 
-Eggcellent/Images/Screenshot 2024-03-21 at 6.53.53 PM.png
+    <img
+    src="https://github.com/SageSpellman/Eggcellent/blob/main/Images/Screenshot%202024-03-21%20at%206.53.53%E2%80%AFPM.png"
+    width="700"
 
+    
 # Languages Used
  ![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
   ![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
